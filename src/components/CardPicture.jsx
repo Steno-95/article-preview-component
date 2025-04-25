@@ -1,6 +1,6 @@
 function CardPicture({ img }) {
   return (
-    <figure className="h-[12rem] overflow-hidden w-full">
+    <figure className="max-h-[13rem] w-full overflow-hidden lg:max-h-[17rem] ">
       <img src={`/images/${img}.jpg`} alt={`${img} photo`} className="w-full" />
     </figure>
   );

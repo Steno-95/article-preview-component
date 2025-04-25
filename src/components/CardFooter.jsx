@@ -4,7 +4,9 @@ import CardShare from "./CardShare";
 function CardFooter({ img, username, date }) {
   const [isClicked, setIsClicked] = useState(false);
   return (
-    <footer className={`${isClicked && "bg-(--gray-dark)"} flex px-6 py-4`}>
+    <footer
+      className={`${isClicked && "bg-(--gray-dark) "} flex py-4 px-6 lg:px-10`}
+    >
       {!isClicked && (
         <>
           <figure className="size-10 rounded-full overflow-hidden mr-4">
@@ -24,10 +26,20 @@ function CardFooter({ img, username, date }) {
       )}
       {isClicked && <CardShare />}
       <button
-        className="ml-auto size-8 bg-(--gray-light) rounded-full flex items-center justify-center "
+        className={`ml-auto size-8  rounded-full flex items-center justify-center ${
+          isClicked ? "bg-(--gray)" : "bg-(--gray-light)"
+        }`}
         onClick={() => setIsClicked((click) => !click)}
       >
-        <img src="/images/icon-share.svg" />
+        {/* <img
+          src="/images/icon-share.svg"
+          className={isClicked && "filter-sepia-"}
+        /> */}
+        <div
+          className={`mask-[url(/images/icon-share.svg)] mask-no-repeat mask-center size-8 ${
+            isClicked ? "bg-white" : "bg-(--gray-blue)"
+          }`}
+        ></div>
       </button>
     </footer>
   );

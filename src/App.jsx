@@ -21,15 +21,15 @@ function App() {
     <div className="bg-(--gray-light) min-h-[100vh] flex flex-col">
       <Card>
         <CardPicture img={cardContent.img} />
-        <section className="p-6 flex flex-col gap-4">
+        <section className=" flex flex-col gap-4 lg:gap-0">
           <CardTitle>{cardContent.title}</CardTitle>
           <CardDescription>{cardContent.description}</CardDescription>
+          <CardFooter
+            img={cardContent.profile}
+            username={cardContent.user}
+            date={cardContent.date}
+          />
         </section>
-        <CardFooter
-          img={cardContent.profile}
-          username={cardContent.user}
-          date={cardContent.date}
-        />
       </Card>
       <Footer />
     </div>
