@@ -39,15 +39,11 @@ function CardFooter({ img, username, date }) {
         }`}
         onClick={() => setIsClicked((click) => !click)}
       >
-        {/* <img
-          src="/images/icon-share.svg"
-          className={isClicked && "filter-sepia-"}
-        /> */}
-        <div
+        <span
           className={`mask-[url(/images/icon-share.svg)] mask-no-repeat mask-center size-8 ${
             isClicked ? "bg-white" : "bg-(--gray-blue)"
           }`}
-        ></div>
+        ></span>
       </button>
     </footer>
   );
