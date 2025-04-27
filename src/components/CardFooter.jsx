@@ -35,6 +35,7 @@ function CardFooter({ img, username, date }) {
       {isForDesktop && <CardShare />}
       <div
         role="button"
+        title="share"
         className={`ml-auto size-8  rounded-full flex items-center justify-center cursor-pointer ${
           isClicked ? "bg-(--gray)" : "bg-(--gray-light)"
         }`}
