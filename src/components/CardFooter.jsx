@@ -33,18 +33,19 @@ function CardFooter({ img, username, date }) {
       )}
       {isForMobile && <CardShare />}
       {isForDesktop && <CardShare />}
-      <button
-        className={`ml-auto size-8  rounded-full flex items-center justify-center ${
+      <div
+        role="button"
+        className={`ml-auto size-8  rounded-full flex items-center justify-center cursor-pointer ${
           isClicked ? "bg-(--gray)" : "bg-(--gray-light)"
         }`}
         onClick={() => setIsClicked((click) => !click)}
       >
         <span
           className={`mask-[url(/images/icon-share.svg)] mask-no-repeat mask-center size-8 ${
-            isClicked ? "bg-white" : "bg-(--gray-blue)"
+            isClicked ? "bg-white" : "bg-(--gray-blue) "
           }`}
         ></span>
-      </button>
+      </div>
     </footer>
   );
 }
