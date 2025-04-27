@@ -1,13 +1,20 @@
 import { useState } from "react";
 import CardShare from "./CardShare";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 
 function CardFooter({ img, username, date }) {
   const [isClicked, setIsClicked] = useState(false);
+  const { width } = useWindowDimensions();
+  const isForMobile = isClicked && width < 1024;
+  const isForDesktop = isClicked && width >= 1024;
+  console.log(width);
   return (
     <footer
-      className={`${isClicked && "bg-(--gray-dark) "} flex py-4 px-6 lg:px-10`}
+      className={`${
+        isForMobile && "bg-(--gray-dark) "
+      } flex py-4 px-6 lg:px-10 lg:relative`}
     >
-      {!isClicked && (
+      {(!isClicked || !isForMobile) && (
         <>
           <figure className="size-10 rounded-full overflow-hidden mr-4">
             <img
@@ -24,7 +31,8 @@ function CardFooter({ img, username, date }) {
           </div>
         </>
       )}
-      {isClicked && <CardShare />}
+      {isForMobile && <CardShare />}
+      {isForDesktop && <CardShare />}
       <button
         className={`ml-auto size-8  rounded-full flex items-center justify-center ${
           isClicked ? "bg-(--gray)" : "bg-(--gray-light)"
